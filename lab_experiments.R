@@ -152,8 +152,7 @@ chick <- ChickWeight
 print(head(chick[order(chick$weight, decreasing = TRUE), ]))
 if (requireNamespace("reshape2", quietly = TRUE)) {
   library(reshape2)
-  chick_long <- melt(chick, id.vars = c(" Chick", "Time", "Diet"))
-  # Correct the id variable name used by the built-in data:
+  # Reshape the built-in dataset using its actual column names:
   chick_long <- melt(chick, id.vars = c("Chick", "Time", "Diet"),
                      variable.name = "Measure", value.name = "Value")
   print(head(chick_long))
